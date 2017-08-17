@@ -9,4 +9,15 @@
     <welcome-file>default.htm</welcome-file>
     <welcome-file>default.jsp</welcome-file>
   </welcome-file-list>
+  
+  <servlet>
+    <description>核心控制器</description>
+    <servlet-name>DispatcherServlet</servlet-name>
+    <servlet-class>com.myworld.reservation.common.DispatcherServlet</servlet-class>
+  </servlet>
+
+  <servlet-mapping>
+    <servlet-name>DispatcherServlet</servlet-name>
+    <url-pattern>*.do</url-pattern>
+  </servlet-mapping>
 </web-app>
