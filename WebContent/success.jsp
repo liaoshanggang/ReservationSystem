@@ -7,7 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-<%-- <% request.getRequestDispatcher("login.html").forward(request, response); %> --%>
-<% response.sendRedirect("login.html"); %>
+<h1>success</h1>
 </body>
 </html>

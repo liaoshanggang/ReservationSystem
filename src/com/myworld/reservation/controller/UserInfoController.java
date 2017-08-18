@@ -5,6 +5,7 @@ import javax.servlet.http.HttpSession;
 
 import com.myworld.reservation.annotation.Controller;
 import com.myworld.reservation.annotation.RequestMapping;
+import com.myworld.reservation.dao.UserInfoDao;
 import com.myworld.reservation.vo.UserInfo;
 
 @Controller
@@ -13,7 +14,13 @@ public class UserInfoController {
 	@RequestMapping("/user/login")
 	public String login(UserInfo uInfo,HttpSession session){
 		System.out.println("login:"+uInfo.getLoginName()+"=="+uInfo.getLoginPass());
-		return "redirect:/index.html";
+		uInfo = new UserInfoDao().login(uInfo);
+		if(uInfo!=null){
+			session.setAttribute("userInfo", uInfo);
+			return "redirect:/success.jsp";
+		}else{
+			return "redirect:/login.html";
+		}
 	}
 	
 	@RequestMapping("/user/reg")
